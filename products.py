@@ -43,7 +43,7 @@ class Product:
         if not self.active:
             raise ValueError("Product is inactive.")
         if quantity <= 0:
-            raise ValueError("Purchase quantity must be positive.")
+            raise ValueError("Purchase quantity must be greater than zero.")
         if quantity > self.quantity:
             raise ValueError("Not enough stock.")
 
