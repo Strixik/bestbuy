@@ -3,6 +3,7 @@ import store
 
 
 def show_products(product_list):
+    """Print a numbered list of products."""
     print("------")
 
     for number, product in enumerate(product_list, start=1):
@@ -13,6 +14,7 @@ def show_products(product_list):
 
 
 def make_order(shop):
+    """Collect an order from the user and process it."""
     available_products = shop.get_all_products()
 
     if not available_products:
@@ -73,6 +75,7 @@ def make_order(shop):
 
 
 def start(shop):
+    """Display the store menu and handle user choices."""
     while True:
         print("\n   Store Menu")
         print("   ----------")
@@ -97,6 +100,7 @@ def start(shop):
 
 
 def main():
+    """Create the initial inventory and start the store interface."""
     product_list = [
         products.Product("MacBook Air M2", price=1450, quantity=100),
         products.Product(

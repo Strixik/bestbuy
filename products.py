@@ -1,5 +1,8 @@
 class Product:
+    """Represent a product with a price and stock quantity."""
+
     def __init__(self, name, price, quantity):
+        """Initialize the product and validate its initial values."""
         if not name.strip():
             raise ValueError("Product name cannot be empty.")
         if price < 0:
@@ -13,9 +16,11 @@ class Product:
         self.active = True
 
     def get_quantity(self) -> int:
+        """Return the current stock quantity."""
         return self.quantity
 
     def set_quantity(self, quantity):
+        """Update stock quantity and deactivate the product when empty."""
         if quantity < 0:
             raise ValueError("Quantity cannot be negative.")
 
@@ -25,21 +30,26 @@ class Product:
             self.deactivate()
 
     def is_active(self) -> bool:
+        """Return whether the product is active."""
         return self.active
 
     def activate(self):
+        """Activate the product."""
         self.active = True
 
     def deactivate(self):
+        """Deactivate the product."""
         self.active = False
 
     def show(self):
+        """Print the product details."""
         print(
             f"{self.name}, Price: {self.price:g}, "
             f"Quantity: {self.quantity}"
         )
 
     def buy(self, quantity) -> float:
+        """Purchase the requested quantity and return its total price."""
         if not self.active:
             raise ValueError("Product is inactive.")
         if quantity <= 0:
@@ -53,6 +63,7 @@ class Product:
 
 
 def main():
+    """Run a demonstration of the Product class."""
     bose = Product("Bose QuietComfort Earbuds", price=250, quantity=500)
     mac = Product("MacBook Air M2", price=1450, quantity=100)
 
