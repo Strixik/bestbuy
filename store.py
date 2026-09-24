@@ -17,8 +17,12 @@ class Store:
         self.products.remove(product)
 
     def get_total_quantity(self) -> int:
-        """Return the total number of items in stock."""
-        return sum(product.get_quantity() for product in self.products)
+        """Return the total quantity of all active products in stock."""
+        return sum(
+            product.get_quantity()
+            for product in self.products
+            if product.is_active()
+        )
 
     def get_all_products(self):
         """Return all active products."""
